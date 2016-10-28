@@ -12,6 +12,10 @@
     <link rel="stylesheet" type="text/css" href="/styles/collection.css">
     <link rel="stylesheet" type="text/css" href="/styles/album.css">
     <link rel="stylesheet" type="text/css" href="/styles/player_bar.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="/scripts/app.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -22,7 +26,6 @@
             <a ui-sref="collection" class="navbar-link">Collection</a>
         </div>
     </nav>
-     <p>{{5 + 1}}</p>
     <ui-view></ui-view>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
