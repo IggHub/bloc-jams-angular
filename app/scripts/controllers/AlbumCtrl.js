@@ -1,9 +1,10 @@
 (function() {
-    function AlbumCtrl() {
-      this.albumData = angular.copy(albumPicasso);
+    function AlbumCtrl(Fixtures) { //inject custom service to ALbumCtrl
+    //  this.albumData = angular.copy(albumPicasso); //albumData = albumPicasso object.
+      this.albumData = Fixtures.getAlbum(); //because Fixtures was injected earlier (AlbumCtrl(Fixtures)), Fixtures (and its methods) are now available for use!
     }
 
     angular
         .module('blocJams')
-        .controller('AlbumCtrl', AlbumCtrl);
+        .controller('AlbumCtrl', ['Fixtures', AlbumCtrl]); //adding Fixtures to AlbumCtrl's dependencies
 })();

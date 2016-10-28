@@ -9,7 +9,7 @@
     $stateProvider
         .state('landing', {
             url: '/',
-            controller: 'LandingCtrl as landing',
+            controller: 'LandingCtrl as landing', //usually done on HTML page directly. With ui-router, we can assign it here!
             templateUrl: '/templates/landing.html'
         })
         .state('album', {

@@ -3,7 +3,7 @@
       this.heroTitle = "Turn the Music Up!";
     }
 
-    angular
+    angular //associates module blocJams with LandingCtrl, along with its callback functions and scope(s), if any.
         .module('blocJams')
         .controller('LandingCtrl', LandingCtrl);
 })();
