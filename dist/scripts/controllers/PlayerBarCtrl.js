@@ -1,5 +1,5 @@
 (function() {
-    function PlayerBarCtrl(Fixtures, SongPlayer) {
+    function PlayerBarCtrl(Fixtures, SongPlayer) { //dependency injection: injects SongPlayer.js and Fixtures.js services
         this.albumData = Fixtures.getAlbum();
         this.songPlayer = SongPlayer;
     };
