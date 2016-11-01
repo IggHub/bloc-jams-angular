@@ -31,9 +31,9 @@
       <h3 class="artist-name">{{playerBar.albumData.artist}}</h3>
     </div>
 
-    <div class="control-group volume">
+    <div class="control-group volume" ng-controller="PlayerBarCtrl as playerBar">
       <span class="ion-volume-high icon"></span>
-        <seek-bar></seek-bar>
+        <seek-bar value="{{playerBar.songPlayer.volume}}" on-change="playerBar.songPlayer.setVolume(value)"></seek-bar>
     </div>
 
   </div>
