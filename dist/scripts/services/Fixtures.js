@@ -1,7 +1,15 @@
-(function() {
-  function Fixtures() {
-    var Fixtures = {};
+(function() { //Fixtures.js is an angular service
+  function Fixtures() { //Fixtures as function name
 
+    // ********** Private attributes/ functions ********** //
+    /*
+    * private attribute Fixtures = {};
+    */
+    var Fixtures = {};
+    /*
+    * private attribute albumPicasso object;
+    *
+    */
     //lists album1's attributes
     var albumPicasso = {
         title: 'The Colors',
@@ -50,10 +58,18 @@
       ]
     };
 
+    // ********** Public attributes/ functions ********** //
+    /*
+    * @desc getAlbum() method
+    * returns albumPicasso {objet}
+    */
     Fixtures.getAlbum = function() { //public method
       return albumPicasso;
     };
-
+    /*
+    * @desc getCollection method; takes in (numberOfAlbums) number argument
+    * returns albums {array}
+    */
     Fixtures.getCollection = function(numberOfAlbums){
         var albums = [];
         for (var i = 0; i < numberOfAlbums; i++){
@@ -62,11 +78,14 @@
         return albums;
     };
 
-
+    /*
+    * source: https://toddmotto.com/opinionated-angular-js-styleguide-for-teams/#factory
+    * @desc registers Fixtures attributes and functions. Fixtures.getCollection() and Fixtures.getAlbum() are now useable
+    */
     return Fixtures;
   }
 
   angular
-    .module('blocJams')
-    .factory('Fixtures', Fixtures);
+    .module('blocJams') //registers service under blocJams module
+    .factory('Fixtures', Fixtures); //register factory service (.factory()) under name of 'Fixtures'. It has Fixtures dependency
 })();

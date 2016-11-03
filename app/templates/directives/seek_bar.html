@@ -1,4 +1,5 @@
-<div class="seek-bar" ng-click = "onClickSeekBar($event)">
-  <div class="fill" ng-style="fillStyle()"></div>
-  <div class="thumb" ng-mousedown="trackThumb()" ng-style="thumbStyle()"></div>
+<!-- automatically converts seekBar camelCase format directive to seek-bar -->
+<div class="seek-bar" ng-click = "onClickSeekBar($event)"> <!-- on click, updates seek bar's relevante values -->
+  <div class="fill" ng-style="fillStyle()"></div> <!-- changes fill CSS of fill class using seekBar directive's fillStyle() -->
+  <div class="thumb" ng-mousedown="trackThumb()" ng-style="thumbStyle()"></div> <!--attach mousedown event and applies trackThumb() function when mousedown event occurs on thumb-->
 </div>

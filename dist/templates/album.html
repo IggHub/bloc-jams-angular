@@ -1,27 +1,38 @@
+<!-- album.html has AlbumCtrl as album -->
 <main class="album-view container narrow">
     <section class="clearfix">
         <div class="column half">
+            <!-- album ctrl -->
             <img ng-src="{{album.albumData.albumArtUrl}}" class="album-cover-art">
         </div>
+        <!-- displays data from album object (currently set for albumPicasso) -->
         <div class="album-view-details column half">
             <h2 class="album-view-title">{{album.albumData.title}}</h2>
             <h3 class="album-view-artist">{{album.albumData.artist}}</h3>
             <h5 class="album-view-release-info">{{album.albumData.year + " " + album.albumData.label}}</h5>
         </div>
     </section>
+
     <table class="album-view-song-list">
 
       <!--iterating over songs rows -->
+        <!-- song in album.albumData.songs iterates over all songs as song -->
+        <!-- When mouseover (mouse hovers on item), make hovered = true -->
+        <!-- When mouseleave (mouse stops hover on item), make hovered = false -->
         <tr class="album-view-song-item" ng-repeat="song in album.albumData.songs" ng-mouseover="hovered = true" ng-mouseleave="hovered = false"> <!-- when mouse is hovering over album-view-song-item, it will make hovered variable = true; when mouse leaves, false-->
             <td class="song-item-number">
-
+              <!-- ng-show shows/ displays element as long as the condition is true, in this case, if song is not playing and is not hovered, displays song index + 1 -->
               <span ng-show="!song.playing && !hovered">{{$index + 1}}</span>
+              <!-- ng-show as long as song is not playing and mouse is hovered, displays the play icon. When clicked, run album.songPlayer.play(song). Recall song is each song item from album.albumData.songs' iteration -->
               <a class="album-song-button" ng-show="!song.playing && hovered" ng-click="album.songPlayer.play(song)"><span class="ion-play"></span></a>
+              <!-- ng-show as long as song is playing is mouse is hovered, show pause icon. When clicked (ng-click), pause song-->
               <a class="album-song-button" ng-show="song.playing" ng-click="album.songPlayer.pause(song)"><span class="ion-pause"></span></a>
 
             </td>
 
+            <!-- show song's name -->
             <td class="song-item-title">{{song.name}}</td>
+            <!-- show song length. Filter display through timecode filter -->
             <td class="song-item-duration">{{song.length | timecode}}</td>
         </tr>
 
@@ -30,4 +41,5 @@
     </table>
 </main>
 
+<!-- ng-include includes player_bar.html template -->
 <ng-include src="'/templates/player_bar.html'"></ng-include>

@@ -1,5 +1,9 @@
+<!-- collection template. Connected to CollectionCtrl.js -->
 <section class="album-covers container clearfix">
+    <!-- ng-repeat collection.albums as album. Recall in CollectionCtrl.js there is a this.albums property. It contains, in this case, array of 12 albumPicasso elements. What does track by $index do?  -->
     <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
+
+        <!-- iteration start -->
         <img src="/assets/images/album_covers/01.png"/>
         <div class="collection-album-info caption">
             <p>

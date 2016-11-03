@@ -1,5 +1,5 @@
-(function() {
-  function timecode() {
+(function() { //Angular filter
+  function timecode() { //name function timecode. Accepts no argument. Note that it must return function that accepts (>= 1 argument(s)). See below
       return function(seconds) { //filter functions must return another function accepting >= 1 argument
       /*  var seconds = Number.parseFloat(seconds);
         if (Number.isNaN(seconds)) {
@@ -23,12 +23,12 @@
         * @desc refactor timer using buzz.toTimer() method
         * in 00:00 format
         */
-        var timer = buzz.toTimer(seconds);
-        return timer;
+        var timer = buzz.toTimer(seconds); //seconds argument; used with buzz.toTimer(time) method
+        return timer; //returns reformatted timer, 00:00 string(?)
       };
   }
 
   angular
-      .module('blocJams')
-      .filter('timecode', timecode);
+      .module('blocJams') //this filter belongs to blocJams module
+      .filter('timecode', timecode); //filter is named timecode. It has dependency of timecode
 })();

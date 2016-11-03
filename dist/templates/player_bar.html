@@ -1,11 +1,15 @@
+<!-- player bar template. Connected to PlayerBarCtrl.js controller. Has 2 attributes/ functions: Fixtures and songPlayer -->
 <section class="player-bar" ng-controller="PlayerBarCtrl as playerBar">
   <div class="container">
 
     <div class="control-group main-controls">
+
+      <!-- when clicked (ng-click), run playerBar.songPlayer.previous(). Recall that songPlayer is a service dependency in PlayerBarCtrl -->
       <a class="previous" ng-click="playerBar.songPlayer.previous()">
         <span class="ion-skip-backward"></span>
       </a>
       <a class="play-pause">
+        <!-- play icon. Show as long as currentSong.playing is falsy. When displayed and clicked, run songPlayer.play() -->
         <span class='ion-play'
               ng-show="!playerBar.songPlayer.currentSong.playing"
               ng-click="playerBar.songPlayer.play()">
@@ -20,9 +24,13 @@
       </a>
     </div>
 
+    <!-- ng-controller playerBar. This is probably redundant since it has been established under section/ parent element. Try to remove ng-controller here and see if it still works? -->
     <div class="control-group currently-playing" ng-controller="PlayerBarCtrl as playerBar">
+
+      <!-- displays currentSong.name. songPlayer has a Fixtures dependency. Fixture has name key -->
       <h2 class="song-name">{{playerBar.songPlayer.currentSong.name}}</h2>
       <div class="seek-control">
+        <!-- seek-bar directive. Its template has thumb and fill. It also has seekBar.js that controls how music plays and dispalys information. What does on-change do? What does this line do? -->
         <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.length }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
         <div class="current-time">{{ playerBar.songPlayer.currentTime | timecode }}</div>
         <div class="total-time">{{playerBar.songPlayer.currentSong.length | timecode }}</div>
